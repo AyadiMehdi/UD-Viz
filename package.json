@@ -4,6 +4,10 @@
   "description": "A collection of itowns plugins",
   "main": "src",
   "scripts": {
+    "test": "mocha lib-test/*.js -r ignore-styles",
+    "transpile-src": "babel src --out-dir lib --copy-files",
+    "transpile-test": "babel test --out-dir lib-test",
+    "transpile": "npm run transpile-src && npm run transpile-test",
     "travis": "npm run eslint && npm run build",
     "eslint": "./node_modules/.bin/eslint ./src",
     "eslint-fix": "./node_modules/.bin/eslint ./src --fix",
@@ -36,10 +40,16 @@
     "vis-network": "^9.0.3"
   },
   "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
     "child-process-promise": "^2.2.1",
+    "core-js": "^3.15.2",
     "cross-env": "^7.0.3",
     "css-loader": "^0.28.10",
     "eslint": "^7.28.0",
+    "ignore-styles": "^5.0.1",
+    "mocha": "^9.0.2",
     "nodemon": "^2.0.7",
     "style-loader": "^0.20.3",
     "url-loader": "^1.0.1",
